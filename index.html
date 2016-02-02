@@ -1,1 +1,298 @@
-Hello World!
+<!DOCTYPE html>
+<!-- 2016 Krystal Lee -->
+
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <title>Krystal Lee</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    
+    <!-- Javascript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/scrollspy.js"></script>
+    
+    <script type="text/javascript">
+    // Smooth Scroll
+	  $(function() {
+	    $('a[href*=#]:not([href=#])').click(function() {
+	      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']')
+          if (target.length) {
+            $('html,body').animate({
+	            scrollTop: target.offset().top
+	          }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+
+    // Change menu color
+		$(function() {
+      var $selected = $('.nav');
+      var firstselect = $('a', '#menu')[0];
+      
+      $(firstselect).css({'background-color':$(firstselect).data('background')});
+      $selected.bind("activate", function(e) {
+        $('a', '#menu').css({'background-color':'inherit'});
+        
+        var coloring = $(e.target).find("a");
+        $(coloring).css({'background-color': coloring.data('background')});
+      });
+		});
+    
+    // Google Fonts embed code
+    $(function() {
+      var link_element = document.createElement("link"),
+      s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+        }
+      link_element.href += "//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    });
+    
+    // Display popup
+    function display(image) {
+      popup = document.getElementById("popup");
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("popupcontent").style.display ="block";
+      document.getElementById("largeImg").src = "images/" + image + "_full.png";
+    }
+    
+    // Close popup
+    function closeDisplay() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("popupcontent").style.display = "none";
+    }
+	  </script>
+    
+    <!-- Google Analytics -->
+ 
+  </head>
+  
+  <body data-spy="scroll" data-target="#menu" data-offset="50">
+    <div id="popup" class="popup" onClick="closeDisplay()"></div>
+    <div id="popupcontent" class="popupcontent" onClick="closeDisplay()"><img class="popupimg" id="largeImg" src="#" alt="" onClick="closeDisplay()"/></div>
+    
+    <!-- Menu -->
+
+    <nav class="menu" id="menu">
+      <ul class="nav">
+        <li><a href="#intro" data-background="#528DCE">INTRODUCTION</a></li>
+        <li><a href="#about" data-background="#3470B4">ABOUT</a></li>
+        <li><a href="#education" data-background="#114279">EDUCATION</a></li>
+        <li><a href="#projects" data-background="#072B54">PROJECTS</a></li>
+        <li><a href="#contact" data-background="#1859A1">CONTACT</a></li>
+        <li><a href="resume.pdf" target="_blank">RESUME</a></li>
+        
+        <!-- Mobile -->
+      </ul>
+    </nav>
+    
+    <!-- Welcome -->
+    <div id="welcome">
+      <div id="welcomebox">
+        <p class="welcome">Welcome to the personal website of...</p>
+        <p class="name">KRYSTAL LEE</p>
+      </div>
+    </div>
+    
+    <!-- Introduction -->
+    <div id="intro">
+      <p class="introtext"><span class="bold">Hello!</span> My name is Krystal, and I am currently a <a class="link" href="#education">Senior in Computer Science</a>.
+      <br/>I am very interested in Software Development/Engineering, and am constantly looking to learn more!
+      <br/>This is my personal webpage I made to keep track of <a class="link" href="#projects">projects</a> and <a class="link" href="#about">interests</a>.
+      <br/>My <a class="link" href="resume.pdf" target="_blank">resume</a> is available in PDF form, and I would love to <a class="link" href="#contact">hear from you</a>!
+      <br/><span class="bold">Enjoy your stay!</span></p>
+    </div>
+    
+    <!-- About/Skills -->
+    <div id="about">
+      </p>
+      <table class="abouttable">
+        <tr>
+          <th class="aboutheader">PROGRAMMING</th>
+          <th class="aboutheader">HOBBIES</th>
+        </tr>
+        <tr>
+          <td class="aboutcolumn"><p class="abouttext">I have been interested in coding/programming since I was 10, and built my first webpage. 
+           However I did not seriously pursue it until my sophmore/junior year of college when I realized that my
+          favorite classes in Biomedical Engineering all revolved around programming! Since then I've been trying to make up for lost time
+          by soaking up as much knowledge as I can! Here are some things I have experience with...</p>
+          <p class="skillstext"><span class="bold">Languages:</span> C/C++, Python, Java, OCaml, JavaScript, PHP, SQL, MATLAB
+          <br/><span class="bold">Operating Systems:</span> Unix, OS X, Linux, Windows
+          <br/><span class="bold">Software:</span> Git, Visual Studio, Eclipse, Emacs
+          <br/><span class="bold">Databases:</span> MySQL, PostgreSQL
+          <br/><span class="bold">Other:</span> HTML/XML, CSS</p></td>
+          <td class="aboutcolumn"><p class="abouttext">Although I have always been interested in the software side of computers I have recently
+          also been getting more interested in the hardware side. I built my first computer in 2013 (which I am currently using to code
+          this webpage!) and since then have built a couple more. It's definitely addictive!</p>
+          <p class="abouttext">Asides from technology I also really love art! Which isn't too surprising since they both require
+          creativity and technical skills. For much of my middle and high school career I spent my time drawing away. 
+          Additionally I enjoy dancing, cooking, and reading! I have many other interests that I never seem to
+          have the time to fully pursue, but hope to one day such as gardening, hooping, woodworking, and sewing.</p></td>
+        </tr>
+      </table>
+    </div>
+    
+    <!-- Education -->
+    <div id="education">
+      <div class="contentdiv">
+        <table class="educationtable">
+          <tr>
+            <th class="eductationheader">UNIVERSITY</th>
+            <th class="eductationheader">OTHER COURSEWORK</th>
+          </tr>
+          <tr>
+            <td><img class="schoolimg" alt="UMN" src="images/UMN.png"></td>
+            <td><img class="schoolimg" alt="COD" src="images/COD.png"></td>
+          </tr>
+          <tr>
+            <td><p class="eductationtext">I am a student at the <a class="link" href="https://twin-cities.umn.edu/" target="_blank">University of Minnesota - Twin Cities</a> 
+            majoring in <span class="bold">Computer Science</span>. 
+            My upper division tracks are <span class="bold">Databases</span> and <span class="bold">Software & Data Systems Development</span>. I have also taken courses in internet programming, operating systems, 
+            computer graphics, artificial intelligence, algorithms, etc. I find that the variety of coursework keeps me motivated and curious!
+            <p class="eductationtext">I originally was a <span class="bold">Biomedical Engineering</span> major before switching to Computer Science, and thus have
+            some coursework in classes for biology, thermodynamics, and chemistry.
+            </p></td>
+            <td><p class="eductationtext">In between semesters at the Univeristy of Minnesota I also took classes as the <a class="link" href="http://www.cod.edu/" target="_blank">College of Dupage</a>.
+            Mostly courses for their <span class="bold">Computer Information Systems</span> program! Some of the classes I took were for technical writing, networking, and different program language introductions.</p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Projects -->
+    <div id="projects">
+        
+      <div class="contentdiv">
+        <table class="projecttable">
+          <tr>
+            <td><p class="projectheader">PROJECTS <span class="projecttip">Click icons to see larger image!</span></p></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">ProxyServer</span>
+          <tr>
+            <td class="projectimage"><img title="Click to see larger!" alt="proxyserver" src="images/proxyserver.png" onClick="display('proxyserver')"/></td>
+            <td class="projecttext-left"><p class="projecttext"><span class="bold">Nov to Dec 2015
+            <br/>Java</span>
+            <br/>*Implemented a program that blocks URLs and/or content-types based on input TXT.
+            <br/>*Incorporated logging via an output file of Request and Response message headers received/sent including the altered headers produced by the program.
+            <br/><span class="experience">Gained Experience With: </span>HTTP protocol, Java programming, Client-server model</p></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">Foursquare on Google</span>
+          <tr>
+            <td class="projecttext-right"><p class="projecttext"><span class="bold">Nov 2015
+            <br/>PHP, JavaScript, HTML, CSS</span>
+            <br/>*Created a web service for finding nearby locations based on user input preferences.
+            <br/>*Developed using Google Maps API to illustrate JSON data from Foursquare API.
+            <br/><span class="experience">Gained Experience With: </span>Working with APIs (Foursquare & Google), JSON</p></td>
+            <td class="projectimage"><img title="Click to see larger!" alt="foursquare" src="images/foursquare.png" onClick="display('foursquare')"/></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">LRUDatabase</span>
+          <tr>
+            <td class="projectimage"><img title="Click to see larger!" alt="LRU" src="images/LRU.png" onClick="display('LRU')"/></td>
+            <td class="projecttext-left"><p class="projecttext"><span class="bold">Oct to Nov 2015
+            <br/>C</span>
+            <br/>*Led a team in editing the open source database PostgreSQL to use a LRU buffer management policy.
+            <br/>*Used critical analysis skills to shift through the thousands of lines of source code and documentation to figure out how to and where to properly include only a few hundred lines of code.
+            <br/>*Tested implemented code verses original clock policy using multiple SQL tests.
+            <br/><span class="experience">Gained Experience With: </span>Databases, Reading/editing large open source code, Reading documentation</p></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">Photo Gallery</span>
+          <tr>
+            <td class="projecttext-right"><p class="projecttext"><span class="bold">Oct to Nov 2015
+            <br/>Python, JavaScript, HTML, CSS</span>
+            <br/>*Coded a dynamically generated web application that allows users to view, upload, and delete images.
+            <br/>*Incorporated user authentication and different account restrictions through cookies that are used to check account settings stored on a MySQL database.
+            <br/><span class="experience">Gained Experience With: </span>CGI programming, MySQL, Cookies</p></td>
+            <td class="projectimage"><img title="Click to see larger!" alt="gallery" src="images/gallery.png" onClick="display('gallery')"/></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">Raytracer</span>
+          <tr>
+            <td class="projectimage"><img title="Click to see larger!" alt="raytracer" src="images/raytracer.png" onClick="display('raytracer')"/></td>
+            <td class="projecttext-left"><p class="projecttext"><span class="bold">Sep to Nov 2015
+            <br/>C/C++</span>
+            <br/>*Created a program that takes a scene description and generates a 3D image using Phong shading model.
+            <br/>*Provided consideration of many different image factors such as reflection, transparency, type of light source, depth of field, textures, parallel projection, etc.
+            <br/><span class="experience">Gained Experience With: </span>Computer graphics, 3D imaging, Going from algorithm/formula to code</p></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">ImageShop</span>
+          <tr>
+            <td class="projecttext-right"><p class="projecttext"><span class="bold">Feb to May 2015
+            <br/>C/C++, HTML, CSS</span>
+            <br/>*Led a team through the lifecycle of creating a project that allows users to draw and manipulate images.
+            <br/>*Designed based on Model View Controller where the base code was condensed into a library that two different application programs used to either run via a GUI or command line.
+            <br/>*Documented project through both Doxygen and a website that included user/dev support and blogs.
+            <br/>*Tested the programs extensively using both CxxTest and Makefile testing.
+            <br/><span class="experience">Gained Experience With: </span>Software Dev Life-Cycle, Model View Controller, Factory pattern, Makefiles</p></td>
+            <td class="projectimage"><img title="Click to see larger!" alt="imgshop" src="images/imgshop.png" onClick="display('imgshop')"/></td>
+          </tr>
+        </table>
+        <br/>
+        
+        <table class="projecttable">
+          <span class="projectname">Mini Filesystem</span>
+          <tr>
+            <td class="projectimage"><img title="Click to see larger!" alt="minifile" src="images/minifile.png" onClick="display('minifile')"/></td>
+            <td class="projecttext-left"><p class="projecttext"><span class="bold">Apr 2015
+            <br/>C</span>
+            <br/>*Worked on a team to program a mini filesystem that takes in a directory of files, searches for certain image types, and creates an output directory to store them.
+            <br/>*Provided multi-functionality by allowing creation of threads in 2 different ways.
+            <br/>*Generated both a log file of results and a web page displaying found images.
+            <br/><span class="experience">Gained Experience With: </span>Threading, Operating systems</p></td>
+          </tr>
+        </table>
+        <br/>
+        <p/>
+      </div>
+    </div>
+    
+    <!-- Contact -->
+    <div id="contact">
+      <div class="contentdiv">
+        <h1>Let's Talk!</h1>
+        <table class="contacttable">
+          <tr>
+            <td><a class="iconlink" href="mailto:leex5444@umn.edu"><img alt="email"  class="icon" src="images/Email-icon.png" title="leex5444@umn.edu"/><br/>Email</a></td>
+            <td><a class="iconlink" href="https://github.com/evedoll" target="_blank"><img alt="github" class="icon" src="images/Github-icon.png" title="evedoll"/><br/>Github</a></td>
+            <td><a class="iconlink" href="https://www.linkedin.com/in/krystal-lee-39191bb1" target="_blank"><img alt="linkedin" class="icon" src="images/Linkedin-icon.png" title="Krystal Lee"/><br/>Linkedin</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </body>
+</html>
